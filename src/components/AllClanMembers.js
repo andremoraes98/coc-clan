@@ -1,29 +1,48 @@
 import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import { mockResponseClan } from '../helpers/data';
 
-const AllClanMembers = () => {
-  const { memberList } = mockResponseAPI;
+const AllClanMembers = ({ history }) => {
+  const { memberList } = mockResponseClan;
 
   console.log(memberList)
 
   return (
     <table>
       <thead>
-        <th>Rank</th>
-        <th>Nome</th>
-        <th>Cargo</th>
-        <th>Tropas Doadas</th>
-        <th>Tropas Recebidas</th>
-      </thead>
-      {memberList.map(member => (
         <tr>
-          <td>{ member.clanRank }. </td>
-          <td>{ member.name }</td>
-          <td>{ member.role }</td>
-          <td>{ member.donations }</td>
-          <td>{ member.donationsReceived }</td>
+          <th>Rank</th>
+          <th>Nome</th>
+          <th>Cargo</th>
+          <th>Tropas Doadas</th>
+          <th>Tropas Recebidas</th>
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {memberList.map((member) => {
+          const isTroopsBalanced = member.donationsReceived / member.donations > 1;
+
+          return (
+            <tr
+              key={ member.name }
+            >
+              <td>{ member.clanRank }. </td>
+              <td
+                onClick={ () => history.push(`%23${member.tag.replace('#', '')}`)}
+                className={
+                  isTroopsBalanced
+                    ? 'red-background-color cursor-pointer'
+                    : 'cursor-pointer' 
+                }
+              >
+                { member.name }
+              </td>
+              <td>{ member.role }</td>
+              <td>{ member.donations }</td>
+              <td>{ member.donationsReceived }</td>
+            </tr>
+          )
+        })}
+      </tbody>
     </table>
   )
 

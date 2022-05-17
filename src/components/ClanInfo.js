@@ -1,5 +1,5 @@
 import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import { mockResponseClan } from '../helpers/data';
 
 const ClanInfo = () => {
   const {
@@ -10,17 +10,17 @@ const ClanInfo = () => {
     requiredTrophies,
     warFrequency,
     location: { name },
-  } = mockResponseAPI;
+  } = mockResponseClan;
 
   return (
     <div>
-      <p>Guerras vencidas: { warWins }</p>
-      <p>Vitórias seguidas: { warWinStreak }</p>
-      <p>Membros: { members }</p>
-      <p>Tipos: { type }</p>
-      <p>Troféus necessários: { requiredTrophies }</p>
-      <p>Frequência de guerra: { warFrequency }</p>
-      <p>Localização do clã: { name }</p>
+      <p>Guerras vencidas: <strong>{ warWins }</strong></p>
+      <p>Vitórias seguidas: <strong>{ warWinStreak }</strong></p>
+      <p>Membros: <strong>{ members }</strong></p>
+      <p>Tipo: <strong>{ type === 'initeOnly' ? 'Apenas convidados' : 'Aberto' }</strong></p>
+      <p>Troféus necessários: <strong>{ requiredTrophies }</strong></p>
+      <p>Frequência de guerra: <strong>{ warFrequency === 'always' ? 'Sempre' : 'Frequentemente' }</strong></p>
+      <p>Localização do clã: <strong>{ name }</strong></p>
     </div>
   )
 }

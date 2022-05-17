@@ -1,8 +1,8 @@
 import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import { mockResponseClan } from '../helpers/data';
 
 const ClanBadge = () => {
-  const { badgeUrls: { medium } } = mockResponseAPI;
+  const { badgeUrls: { medium } } = mockResponseClan;
 
   return (
     <img src={ medium } alt="Badge Clan" />

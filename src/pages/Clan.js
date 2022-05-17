@@ -4,7 +4,7 @@ import ClanInfo from '../components/ClanInfo';
 import ClanDescription from '../components/ClanDescription';
 import AllClanMembers from '../components/AllClanMembers';
 
-const Clan = () => {
+const Clan = ({ history }) => {
 
   return (
     <>
@@ -13,7 +13,7 @@ const Clan = () => {
         <ClanInfo />
         <ClanDescription />
       </section>
-      <AllClanMembers />
+      <AllClanMembers history={ history } />
     </>
   )
 }

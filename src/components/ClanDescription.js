@@ -1,15 +1,20 @@
-import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import React, { useState, useEffect } from 'react';
+import { mockResponseClan } from '../helpers/data';
 
 const ClanBadge = () => {
-  const { description } = mockResponseAPI;
-  const descriptionSplited = description.split('🍀');
-
-  console.log(descriptionSplited.pop());
+  const { description } = mockResponseClan;
+  const [ clanDescription, setClanDescription ] = useState([]);
+  
+  useEffect(() => {
+    const descriptionSplited = description.split('🍀');
+    descriptionSplited.pop();
+    setClanDescription(descriptionSplited)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
-      { descriptionSplited.map((text, index) => <h4 key={ index }>🍀 { text } 🍀</h4>) }
+      { clanDescription.map((text, index) => <h4 key={ index }>🍀 { text } 🍀</h4>) }
     </div>
   )
 }
