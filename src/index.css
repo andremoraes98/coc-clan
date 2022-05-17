@@ -28,3 +28,8 @@ code {
   width: fit-content;
   font-size: 20px;
 }
+
+table {
+  text-align: center;
+  margin: 0 auto;
+}
