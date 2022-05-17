@@ -1,12 +1,18 @@
 import React from 'react';
-import MemberBadge from '../components/MemberBadge'
+import ClanBadge from '../components/ClanBadge';
+import ClanInfo from '../components/ClanInfo';
+import ClanDescription from '../components/ClanDescription';
 import { mockResponseAPI } from '../helpers/JSON';
 
 const Clan = () => {
   console.log(mockResponseAPI)
 
   return (
-    <MemberBadge />
+    <section className="main-clan">
+      <ClanBadge />
+      <ClanInfo />
+      <ClanDescription />
+    </section>
   )
 }
 

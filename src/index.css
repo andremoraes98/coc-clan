@@ -18,3 +18,13 @@ code {
   align-items: center;
   background-color: wheat;
 }
+
+
+.main-clan img {
+  width: 20%;
+}
+
+.main-clan div {
+  width: fit-content;
+  font-size: 20px;
+}

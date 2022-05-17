@@ -5,8 +5,8 @@ import MemberClan from './pages/MemberClan';
 
 const App = () => (
   <Switch>
-      <Route path="/:tag" component={ MemberClan } />
-      <Route path="/" component={ Clan } />
+    <Route path="/:tag" component={ MemberClan } />
+    <Route path="/" component={ Clan } />
   </Switch>
 );
 
