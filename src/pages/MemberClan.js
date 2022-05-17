@@ -1,8 +1,9 @@
 import React from 'react';
+import MemberInfo from '../components/MemberInfo';
 
 const Clan = () => {
   return (
-    <h1>Member Clan</h1>
+    <MemberInfo />
   )
 }
 
