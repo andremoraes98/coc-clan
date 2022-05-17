@@ -1,21 +1,13 @@
-import React, { useContext }  from 'react';
-import { useEffect } from 'react';
-import ClanContext from './context/ClanContext'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Clan from './pages/Clan';
+import MemberClan from './pages/MemberClan';
 
-const App = () => {
-  const { requestClanInfo, clanInfo } = useContext(ClanContext);
-
-  useEffect(() => {
-    requestClanInfo('2POC9CQY8');
-  }, []);
-
-  console.log(clanInfo);
-
-  return (
-    <h1 >
-      hello, cabesas
-    </h1>
-  );
-}
+const App = () => (
+  <Switch>
+      <Route path="/:tag" component={ MemberClan } />
+      <Route path="/" component={ Clan } />
+  </Switch>
+);
 
 export default App;
