@@ -46,12 +46,18 @@ th, td {
   width: 15%;
   background-color: white;
   border-radius: 20px;
+  transition: 0.2s;
 }
 
 .red-background-color {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+#member-name:hover {
+  background-color: rgb(255, 115, 115);
+  transition: 0.2s;
 }

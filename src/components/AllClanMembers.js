@@ -27,12 +27,15 @@ const AllClanMembers = ({ history }) => {
             >
               <td>{ member.clanRank }. </td>
               <td
-                onClick={ () => history.push(`%23${member.tag.replace('#', '')}`)}
+                onClick={ () => history.push(
+                  `%23${member.tag.replace('#', '')}`
+                ) }
                 className={
                   isTroopsBalanced
                     ? 'red-background-color cursor-pointer'
                     : 'cursor-pointer' 
                 }
+                id="member-name"
               >
                 { member.name }
               </td>
