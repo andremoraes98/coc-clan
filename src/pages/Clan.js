@@ -10,7 +10,9 @@ const Clan = ({ history }) => {
     <>
       <section className="main-clan">
         <ClanBadge />
+        <div className="vertical"></div>
         <ClanInfo />
+        <div className="vertical"></div>
         <ClanDescription />
       </section>
       <AllClanMembers history={ history } />

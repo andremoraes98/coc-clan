@@ -13,7 +13,7 @@ const ClanBadge = () => {
   }, []);
 
   return (
-    <div>
+    <div className="description-clan">
       { clanDescription.map((text, index) => <h4 key={ index }>🍀 { text } 🍀</h4>) }
     </div>
   )

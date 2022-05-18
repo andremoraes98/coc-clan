@@ -2,7 +2,6 @@ import React from 'react';
 import { mockResponsePlayer } from '../helpers/data';
 
 const MemberInfo = () => {
-  console.log(mockResponsePlayer);
   return (
     <>
       <section>

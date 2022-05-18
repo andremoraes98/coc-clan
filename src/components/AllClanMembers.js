@@ -4,17 +4,28 @@ import { mockResponseClan } from '../helpers/data';
 const AllClanMembers = ({ history }) => {
   const { memberList } = mockResponseClan;
 
-  console.log(memberList)
+  const memberRole = (role) => {
+    if (role === 'admin') {
+      return 'Ancião'
+    }
+    if (role === 'coLeader') {
+      return 'Co-Líder'
+    }
+    if (role === 'leader') {
+      return 'Líder'
+    }
+    return 'Membro'
+  }
 
   return (
     <table>
       <thead>
         <tr>
-          <th>Rank</th>
-          <th>Nome</th>
-          <th>Cargo</th>
-          <th>Tropas Doadas</th>
-          <th>Tropas Recebidas</th>
+          <th><h3>Rank</h3></th>
+          <th><h3>Nome</h3></th>
+          <th><h3>Cargo</h3></th>
+          <th><h3>Tropas Doadas</h3></th>
+          <th><h3>Tropas Recebidas</h3></th>
         </tr>
       </thead>
       <tbody>
@@ -24,24 +35,25 @@ const AllClanMembers = ({ history }) => {
           return (
             <tr
               key={ member.name }
+              className='cursor-pointer'
+              onClick={ () => history.push(
+                `%23${member.tag.replace('#', '')}`
+              ) }
             >
-              <td>{ member.clanRank }. </td>
+              <td><p>{ member.clanRank }. </p></td>
               <td
+                id="member-name"
                 className={
                   isTroopsBalanced
-                    ? 'red-background-color cursor-pointer'
-                    : 'cursor-pointer' 
+                    ? 'red-background-color'
+                    : null
                 }
-                id="member-name"
-                onClick={ () => history.push(
-                  `%23${member.tag.replace('#', '')}`
-                ) }
               >
-                { member.name }
+                <p>{ member.name }</p>
               </td>
-              <td>{ member.role }</td>
-              <td>{ member.donations }</td>
-              <td>{ member.donationsReceived }</td>
+              <td><p>{ memberRole(member.role) }</p></td>
+              <td><p>{ member.donations }</p></td>
+              <td><p>{ member.donationsReceived }</p></td>
             </tr>
           )
         })}
