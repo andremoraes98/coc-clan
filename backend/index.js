@@ -19,6 +19,6 @@ app.get('/clan', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('rodando na 3000!')
+app.listen(3001, () => {
+  console.log('rodando na 3001!')
 });
