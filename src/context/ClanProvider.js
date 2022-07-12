@@ -7,7 +7,7 @@ const ClanProvider = ({ children }) => {
   const [clanInfo, setClanInfo] = useState([])
 
   const requestClanInfo = async (clanTag) => {
-    const url = `https://api.clashofclans.com/v1/clans/%23${clanTag}`;
+    const url = `http://localhost:3000/clan`;
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${COC_TOKEN}`,
