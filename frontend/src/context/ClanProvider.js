@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ClanContext from './ClanContext';
-import COC_TOKEN from '../helpers/token';
+import COC_TOKEN from '../token';
 import { useState } from 'react';
 
 const ClanProvider = ({ children }) => {
