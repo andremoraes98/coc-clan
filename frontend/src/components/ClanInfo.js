@@ -1,16 +1,17 @@
-import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import React, { useContext } from 'react';
+import ClanContext from '../context/ClanContext';
 
 const ClanInfo = () => {
-  const {
-    warWins,
-    warWinStreak,
-    members,
-    type,
-    requiredTrophies,
-    warFrequency,
-    location: { name },
-  } = mockResponseAPI;
+  const { clanInfo: {
+      warWins,
+      warWinStreak,
+      members,
+      type,
+      requiredTrophies,
+      warFrequency,
+      location,
+    },
+  } = useContext(ClanContext);
 
   return (
     <div>
@@ -20,7 +21,7 @@ const ClanInfo = () => {
       <p>Tipos: { type }</p>
       <p>Troféus necessários: { requiredTrophies }</p>
       <p>Frequência de guerra: { warFrequency }</p>
-      <p>Localização do clã: { name }</p>
+      <p>Localização do clã: { location.name }</p>
     </div>
   )
 }
