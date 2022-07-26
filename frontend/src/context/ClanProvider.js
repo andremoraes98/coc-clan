@@ -20,12 +20,19 @@ const ClanProvider = ({ children }) => {
     setIsFetchOk(true);
   }
 
+  const requestPlayerInfo = async (playerTag) => {
+    setIsFetchOk(false);
+    const tag = playerTag.replace('#', '%23');
+    setIsFetchOk(true);
+    return tag;
+  };
+
   useEffect(() => {
     requestClanInfo();
   }, []);
 
   const context = {
-    requestClanInfo,
+    requestPlayerInfo,
     clanInfo,
     isFetchOk,
   }
