@@ -4,7 +4,8 @@ import COC_TOKEN from '../helpers/token';
 import { useState } from 'react';
 
 const ClanProvider = ({ children }) => {
-  const [clanInfo, setClanInfo] = useState([])
+  const [clanInfo, setClanInfo] = useState([]);
+  const [isFetchOk, setIsFetchOk] = useState(false);
 
   const requestClanInfo = async () => {
     const url = `http://localhost:3001/clan`;
@@ -16,6 +17,7 @@ const ClanProvider = ({ children }) => {
     });
     const data = await response.json();
     setClanInfo(data);
+    setIsFetchOk(true);
   }
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const ClanProvider = ({ children }) => {
   const context = {
     requestClanInfo,
     clanInfo,
+    isFetchOk,
   }
 
   return (
