@@ -5,10 +5,11 @@ import { useState } from 'react';
 
 const ClanProvider = ({ children }) => {
   const [clanInfo, setClanInfo] = useState([]);
+  const [playerInfo, setPlayerInfo] = useState([]);
   const [isFetchOk, setIsFetchOk] = useState(false);
 
   const requestClanInfo = async () => {
-    const url = `http://localhost:3001/clan`;
+    const url = 'http://localhost:3001/clan';
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${COC_TOKEN}`,
@@ -22,9 +23,19 @@ const ClanProvider = ({ children }) => {
 
   const requestPlayerInfo = async (playerTag) => {
     setIsFetchOk(false);
-    const tag = playerTag.replace('#', '%23');
+    const tag = playerTag.replace('#', '');
+    const url = `http://localhost:3001/player/${tag}`;
+
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${COC_TOKEN}`,
+        'Accept': 'application/json',
+      }
+    });
+    const data = await response.json();
+
+    setPlayerInfo(data);
     setIsFetchOk(true);
-    return tag;
   };
 
   useEffect(() => {
@@ -33,6 +44,7 @@ const ClanProvider = ({ children }) => {
 
   const context = {
     requestPlayerInfo,
+    playerInfo,
     clanInfo,
     isFetchOk,
   }
