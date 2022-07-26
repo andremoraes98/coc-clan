@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import ClanBadge from '../components/ClanBadge';
-import ClanInfo from '../components/ClanInfo';
-import ClanDescription from '../components/ClanDescription';
-import AllClanMembers from '../components/AllClanMembers';
+import ClanBadge from '../components/clan/ClanBadge';
+import ClanInfo from '../components/clan/ClanInfo';
+import ClanDescription from '../components/clan/ClanDescription';
+import AllClanMembers from '../components/clan/AllClanMembers';
 import ClanContext from '../context/ClanContext';
 
 const Clan = () => {
