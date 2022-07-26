@@ -21,6 +21,21 @@ app.get('/clan', async (req, res) => {
   }
 });
 
+app.get('/player/:tag', async (req, res) => {
+  try {
+    const { authorization } = req.headers;
+    const { tag } = req.params;
+    const playerTag = `%23${tag}`
+    const url = `https://api.clashofclans.com/v1/players/${playerTag}`;
+    const { data } = await axios.get(url, { headers: { Authorization: authorization } });
+  
+    return res.status(200).json(data);
+  } catch(e) {
+    console.log(e);
+    res.status(500).json({ message: `Deu ruim por causa disso: ${e.message}`})
+  }
+});
+
 app.listen(3001, () => {
   console.log('rodando na 3001!')
 });
