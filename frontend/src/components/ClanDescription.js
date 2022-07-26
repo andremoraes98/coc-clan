@@ -1,11 +1,9 @@
-import React from 'react';
-import { mockResponseAPI } from '../helpers/JSON';
+import React, { useContext } from 'react';
+import ClanContext from '../context/ClanContext';
 
 const ClanBadge = () => {
-  const { description } = mockResponseAPI;
-  const descriptionSplited = description.split('🍀');
-
-  console.log(descriptionSplited.pop());
+  const { clanInfo: { description } } = useContext(ClanContext);
+  const descriptionSplited = description.split('🍀').slice(0, 7);
 
   return (
     <div>
